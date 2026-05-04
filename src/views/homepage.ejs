@@ -1,4 +1,50 @@
-<h1>Homepage</h1>
-<pre>
-  <%= data %>
-</pre>
+
+<style>
+body {
+  background: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+.homepage-container {
+  background: #fff;
+  max-width: 600px;
+  margin: 60px auto 0 auto;
+  padding: 36px 40px 28px 40px;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  text-align: center;
+}
+h1 {
+  color: #3498db;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+pre {
+  background: #f4f8fb;
+  color: #333;
+  padding: 18px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  text-align: left;
+  overflow-x: auto;
+  box-shadow: 0 2px 8px rgba(52,152,219,0.07);
+}
+@media (max-width: 700px) {
+  .homepage-container {
+    padding: 18px 8px;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+}
+</style>
+
+<div class="homepage-container">
+  <h1>Homepage</h1>
+  <pre>
+    <%= data %>
+  </pre>
+</div>

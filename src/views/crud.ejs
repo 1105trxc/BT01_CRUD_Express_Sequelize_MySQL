@@ -1,49 +1,122 @@
-<form action="/post-crud" method="post">
+<style>
+body {
+	background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	min-height: 100vh;
+	margin: 0;
+	padding: 0;
+}
+.crud-container {
+	background: #fff;
+	max-width: 600px;
+	margin: 40px auto;
+	padding: 32px 40px 24px 40px;
+	border-radius: 18px;
+	box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+h2 {
+	text-align: center;
+	color: #f76d6d;
+	margin-bottom: 28px;
+	font-weight: 700;
+}
+.form-row {
+	display: flex;
+	gap: 18px;
+	margin-bottom: 18px;
+}
+.form-group {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+label {
+	margin-bottom: 6px;
+	color: #333;
+	font-weight: 500;
+}
+.form-control {
+	padding: 10px 12px;
+	border: 1px solid #e0e0e0;
+	border-radius: 6px;
+	font-size: 1rem;
+	transition: border-color 0.2s;
+}
+.form-control:focus {
+	border-color: #f76d6d;
+	outline: none;
+}
+.btn-primary {
+	width: 100%;
+	background: linear-gradient(90deg, #f76d6d 0%, #f7b267 100%);
+	color: #fff;
+	border: none;
+	padding: 12px;
+	border-radius: 6px;
+	font-size: 1.1rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: background 0.2s;
+	margin-top: 18px;
+}
+.btn-primary:hover {
+	background: linear-gradient(90deg, #f7b267 0%, #f76d6d 100%);
+}
+@media (max-width: 700px) {
+	.crud-container {
+		padding: 18px 8px;
+	}
+	.form-row {
+		flex-direction: column;
+		gap: 0;
+	}
+}
+</style>
 
-	<div class="form-row">
-		<div class="form-group col-md-6">
-			<label for="inputEmail4">Email</label>
-			<input type="email" class="form-control" id="email" name="email">
+<div class="crud-container">
+	<h2>CRUD User Form</h2>
+	<form action="/post-crud" method="post">
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<label for="inputEmail4">Email</label>
+				<input type="email" class="form-control" id="email" name="email">
+			</div>
+			<div class="form-group col-md-6">
+				<label for="inputPassword4">Password</label>
+				<input type="password" class="form-control" id="password" name="password">
+			</div>
 		</div>
-		<div class="form-group col-md-6">
-			<label for="inputPassword4">Password</label>
-			<input type="password" class="form-control" id="password" name="password">
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<label for="inputEmail4">First Name</label>
+				<input type="text" class="form-control" id="firstName" name="firstName">
+			</div>
+			<div class="form-group col-md-6">
+				<label for="inputPassword4">Last Name</label>
+				<input type="text" class="form-control" id="lastName" name="lastName">
+			</div>
 		</div>
-	</div>
-
-	<div class="form-row">
-		<div class="form-group col-md-6">
-			<label for="inputEmail4">First Name</label>
-			<input type="text" class="form-control" id="firstName" name="firstName">
+		<div class="form-row">
+			<div class="form-group col-md-4">
+				<label for="inputCity">Phone Number</label>
+				<input type="text" class="form-control" id="phoneNumber" name="phoneNumber">
+			</div>
+			<div class="form-group col-md-4">
+				<label for="inputState">Gender</label>
+				<select id="gender" name="gender" class="form-control">
+					<option selected value="0">Male</option>
+					<option value="1">Female</option>
+				</select>
+			</div>
+			<div class="form-group col-md-4">
+				<label for="role">Role</label>
+				<select id="roleId" name="roleId" class="form-control">
+					<option selected value="1">Admin</option>
+					<option value="2">Doctor</option>
+					<option value="3">Patient</option>
+				</select>
+			</div>
 		</div>
-		<div class="form-group col-md-6">
-			<label for="inputPassword4">Last Name</label>
-			<input type="text" class="form-control" id="lastName" name="lastName">
-		</div>
-	</div>
-
-	<div class="form-row">
-		<div class="form-group col-md-4">
-			<label for="inputCity">Phone Number</label>
-			<input type="text" class="form-control" id="phoneNumber" name="phoneNumber">
-		</div>
-		<div class="form-group col-md-4">
-			<label for="inputState">Gender</label>
-			<select id="gender" name="gender" class="form-control">
-				<option selected value="0">Male</option>
-				<option value="1">Female</option>
-			</select>
-		</div>
-		<div class="form-group col-md-4">
-			<label for="role">Role</label>
-			<select id="roleId" name="roleId" class="form-control">
-				<option selected value="1">Admin</option>
-				<option value="2">Doctor</option>
-				<option value="3">Patient</option>
-			</select>
-		</div>
-	</div>
-
-	<button type="submit" class="btn btn-primary">Sign in</button>
-
-</form>
+		<button type="submit" class="btn btn-primary">Sign in</button>
+	</form>
+</div>

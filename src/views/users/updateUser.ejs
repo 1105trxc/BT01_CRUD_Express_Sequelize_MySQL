@@ -1,7 +1,89 @@
-<form action="/put-crud" method="POST">
-<input type="hidden" name="id" value="<%=user.id%>"/>
-<input name="firstName" value="<%=user.firstName%>"/>
-<input name="lastName" value="<%=user.lastName%>"/>
-<input name="email" value="<%=user.email%>"/>
-<input name="address" value="<%=user.address%>"/>
-<button>Update</button></form>
+<style>
+body {
+	background: linear-gradient(120deg, #f7971e 0%, #ffd200 100%);
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	min-height: 100vh;
+	margin: 0;
+	padding: 0;
+}
+.update-container {
+	background: #fff;
+	max-width: 420px;
+	margin: 60px auto;
+	padding: 36px 32px 28px 32px;
+	border-radius: 18px;
+	box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+h2 {
+	text-align: center;
+	color: #f7971e;
+	margin-bottom: 28px;
+	font-weight: 700;
+}
+.form-group {
+	margin-bottom: 18px;
+	display: flex;
+	flex-direction: column;
+}
+label {
+	margin-bottom: 6px;
+	color: #333;
+	font-weight: 500;
+}
+.form-control {
+	padding: 10px 12px;
+	border: 1px solid #e0e0e0;
+	border-radius: 6px;
+	font-size: 1rem;
+	transition: border-color 0.2s;
+}
+.form-control:focus {
+	border-color: #f7971e;
+	outline: none;
+}
+.btn-update {
+	width: 100%;
+	background: linear-gradient(90deg, #f7971e 0%, #ffd200 100%);
+	color: #fff;
+	border: none;
+	padding: 12px;
+	border-radius: 6px;
+	font-size: 1.1rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: background 0.2s;
+	margin-top: 18px;
+}
+.btn-update:hover {
+	background: linear-gradient(90deg, #ffd200 0%, #f7971e 100%);
+}
+@media (max-width: 700px) {
+	.update-container {
+		padding: 18px 8px;
+	}
+}
+</style>
+
+<div class="update-container">
+	<h2>Update User</h2>
+	<form action="/put-crud" method="POST">
+		<input type="hidden" name="id" value="<%=user.id%>"/>
+		<div class="form-group">
+			<label for="firstName">First Name</label>
+			<input class="form-control" id="firstName" name="firstName" value="<%=user.firstName%>"/>
+		</div>
+		<div class="form-group">
+			<label for="lastName">Last Name</label>
+			<input class="form-control" id="lastName" name="lastName" value="<%=user.lastName%>"/>
+		</div>
+		<div class="form-group">
+			<label for="email">Email</label>
+			<input class="form-control" id="email" name="email" value="<%=user.email%>"/>
+		</div>
+		<div class="form-group">
+			<label for="address">Address</label>
+			<input class="form-control" id="address" name="address" value="<%=user.address%>"/>
+		</div>
+		<button class="btn-update">Update</button>
+	</form>
+</div>

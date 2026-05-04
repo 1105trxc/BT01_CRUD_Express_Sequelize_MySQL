@@ -1,5 +1,70 @@
-<body>
-	<table style="width:100%">
+<style>
+body {
+	background: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	min-height: 100vh;
+	margin: 0;
+	padding: 0;
+}
+.table-container {
+	max-width: 900px;
+	margin: 50px auto;
+	background: #fff;
+	border-radius: 16px;
+	box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+	padding: 32px 24px 24px 24px;
+}
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 0;
+}
+th, td {
+	padding: 14px 10px;
+	text-align: left;
+}
+th {
+	background: #f5576c;
+	color: #fff;
+	font-size: 1.1rem;
+	font-weight: 600;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+}
+tr:nth-child(even) {
+	background: #f9f9f9;
+}
+tr:hover {
+	background: #ffe0e6;
+}
+.action-links a {
+	color: #f5576c;
+	text-decoration: none;
+	font-weight: 600;
+	margin-right: 10px;
+	transition: color 0.2s;
+}
+.action-links a:last-child {
+	margin-right: 0;
+}
+.action-links a:hover {
+	color: #a8325e;
+	text-decoration: underline;
+}
+@media (max-width: 900px) {
+	.table-container {
+		padding: 12px 2px;
+	}
+	th, td {
+		padding: 10px 4px;
+		font-size: 0.97rem;
+	}
+}
+</style>
+
+<div class="table-container">
+	<h2 style="text-align:center;color:#f5576c;margin-bottom:24px;">User List</h2>
+	<table>
 		<tr>
 			<th>Email</th>
 			<th>First Name</th>
@@ -7,18 +72,18 @@
 			<th>Address</th>
 			<th>Action</th>
 		</tr>
-
 		<% for(let i=0; i < datalist.length; i++) { %>
 			<tr>
 				<td><%= datalist[i].email %></td>
 				<td><%= datalist[i].firstName %></td>
 				<td><%= datalist[i].lastName %></td>
 				<td><%= datalist[i].address %></td>
-				<td>
-					<a href="/edit-crud?id=<%= datalist[i].id %>">Edit</a> ||
+				<td class="action-links">
+					<a href="/edit-crud?id=<%= datalist[i].id %>">Edit</a>
+					|
 					<a href="/delete-crud?id=<%= datalist[i].id %>">Delete</a>
 				</td>
 			</tr>
 		<% } %>
 	</table>
-</body>
+</div>
